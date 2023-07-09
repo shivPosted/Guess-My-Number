@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 //Guess my number using prompt
 
@@ -34,50 +34,51 @@ let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let score = 20;
 let highScore = 0;
 // document.querySelector('.number-box').textContent = secretNumber;
-document.querySelector('.check').addEventListener('click', function () {
-  const guess = Number(document.querySelector('.enter-num').value);
+document.querySelector(".check").addEventListener("click", function () {
+  const guess = Number(document.querySelector(".enter-num").value);
   console.log(guess, typeof guess);
   console.log(score);
   if (score > 1) {
     if (!guess) {
-      document.querySelector('.hint').textContent = '⛔ No number';
+      document.querySelector(".hint").textContent = "⛔ No number";
       score--;
     } else if (guess !== secretNumber) {
-      document.querySelector('.hint').textContent =
-        guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
+      document.querySelector(".hint").textContent =
+        guess > secretNumber ? "📈 Too high!" : "📉 Too low!";
+      document.querySelector(".enter-num").value = "";
       score--;
     } else {
-      document.querySelector('.hint').textContent = '🥳 Correct Number!';
-      document.querySelector('.number-box').textContent = secretNumber;
-      document.querySelector('.enter-num').style.backgroundColor = '#c084fc';
-      document.querySelector('.number-box').style.width = '30rem';
-      document.body.style.backgroundColor = '#c084fc';
+      document.querySelector(".hint").textContent = "🥳 Correct Number!";
+      document.querySelector(".number-box").textContent = secretNumber;
+      document.querySelector(".enter-num").style.backgroundColor = "#c084fc";
+      document.querySelector(".number-box").style.width = "30rem";
+      document.body.style.backgroundColor = "#c084fc";
       if (score > highScore) {
         highScore = score;
-        document.querySelector('.highscore').textContent = highScore;
+        document.querySelector(".highscore").textContent = highScore;
       }
     }
   } else {
-    document.querySelector('.hint').textContent = '😥 You lost';
-    document.querySelector('.number-box').textContent = secretNumber;
-    document.querySelector('.enter-num').style.backgroundColor = '#6b7280';
-    document.querySelector('.number-box').style.width = '30rem';
-    document.body.style.backgroundColor = '#6b7280';
+    document.querySelector(".hint").textContent = "😥 You lost";
+    document.querySelector(".number-box").textContent = secretNumber;
+    document.querySelector(".enter-num").style.backgroundColor = "#6b7280";
+    document.querySelector(".number-box").style.width = "30rem";
+    document.body.style.backgroundColor = "#6b7280";
     score = 0;
   }
-  document.querySelector('.score').textContent = score;
+  document.querySelector(".score").textContent = score;
 });
 
 //Implementation of the Playing Again
 
-document.querySelector('.again-btn').addEventListener('click', function () {
+document.querySelector(".again-btn").addEventListener("click", function () {
   secretNumber = Math.trunc(Math.random() * 20 + 1);
-  document.querySelector('.number-box').textContent = '?';
-  document.querySelector('.number-box').style.width = '20rem';
-  document.querySelector('.hint').textContent = 'Start guessing...';
-  document.querySelector('.score').textContent = 20;
-  document.querySelector('.enter-num').value = '';
-  document.querySelector('.enter-num').style.backgroundColor = '#222';
-  document.body.style.backgroundColor = '#222';
+  document.querySelector(".number-box").textContent = "?";
+  document.querySelector(".number-box").style.width = "20rem";
+  document.querySelector(".hint").textContent = "Start guessing...";
+  document.querySelector(".score").textContent = 20;
+  document.querySelector(".enter-num").value = "";
+  document.querySelector(".enter-num").style.backgroundColor = "#222";
+  document.body.style.backgroundColor = "#222";
   score = 20;
 });
